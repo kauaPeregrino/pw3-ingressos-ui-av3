@@ -18,13 +18,13 @@
           </tr>
         </thead>
         <tbody>
-         <!-- 
-          @for (item of (salas | async); track item.id) {
+         
+          @for (item of (salas$ | async); track item.id) {
           <tr>
             <td class="item-title">{{ item.nome }}</td>
             <td class="price">{{ item.preco | currency:'BRL':'symbol':'1.2-2' }}</td>
             <td class="actions-cell">
-              <button mat-raised-button color="primary">
+              <button mat-raised-button color="primary"> 
                 <mat-icon>event_seat</mat-icon> Lugares
               </button>
               <button mat-raised-button color="primary">
@@ -41,7 +41,7 @@
           } @empty {
           <tr><td colspan="3" class="empty-msg">Sem registros</td></tr>
           }
-          -->
+          
         </tbody>
       </table>
     </div>

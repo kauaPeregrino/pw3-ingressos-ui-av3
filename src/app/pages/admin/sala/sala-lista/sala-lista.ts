@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ContainerComponent } from '../../../../shared/components/container/container';
 import { RouterLink } from "@angular/router";
+import { SalaService } from '../../../../core/services/sala.service';
+import { Observable } from 'rxjs';
+import { Sala } from '../../../../core/models';
 
 
 @Component({
@@ -15,4 +18,19 @@ import { RouterLink } from "@angular/router";
 })
 export class SalaListaComponent {
   
+  private salaService = inject(SalaService);
+  salas$!: Observable<Sala[]>
+  ngOnInit(): void{
+  this.listarAtivas();
+  }
+
+  listarAtivas(): void{
+  }
+
+    formSala = this.salaService.group({
+    id: [0],
+    nome: [''],
+    preco: [0]
+  });
+
 }
